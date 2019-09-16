@@ -1,0 +1,8 @@
+USE shopping_cart;
+
+INSERT INTO inventory(id, name, description, category, domestic, price, quantity, image_url) VALUES (1, "Redshirts by John Scalzi", "Allegory and survival guide for lower ranking crew members who wish to survive away missions.", "book", true, 4.99, 50, "../../assets/book_redshirts.jpg");
+INSERT INTO inventory(id, name, description, category, domestic, price, quantity, image_url) VALUES (2, "Earl Grey Tea", "Confronted with problems of intergalactic proportions?  Need a break from annoying crew members?  Take a quiet moment to sip on the galaxy's most esteemed beverage.", "food", true, 11.99, 100, "../../assets/food_tea.jpg");
+INSERT INTO inventory(id, name, description, category, domestic, price, quantity, image_url) VALUES (3, "Organ Chip", "A multi-channel 3-D microfluidic cell culture chip that simulates the activities, mechanics and physiological response of entire organs.", "medical", true, 100.00, 20, "../../assets/med_orgoChip.jpeg");
+INSERT INTO inventory(id, name, description, category, domestic, price, quantity, image_url) VALUES (4, "Blue Skies by Ella Fitzgerald", "A true classic for all millenia.", "music", true, 10.00, 30, "../../assets/music_blueSkies.jpg");
+INSERT INTO inventory(id, name, description, category, domestic, price, quantity, image_url) VALUES (5, "Romulan Ale", "So good it's illegal in most quadrants.", "luxury", false, 75.99, 5, "../../assets/lux_ale.jpg");
+INSERT INTO inventory(id, name, description, category, domestic, price, quantity, image_url) VALUES (6, "Cufflinks", "Celebrate being a part of Starfleet in an elegant and understated way.", "clothing", true, 44.99, 150, "../../assets/cloth_cuff.jpg");
