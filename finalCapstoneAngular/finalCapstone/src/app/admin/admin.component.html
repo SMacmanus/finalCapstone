@@ -1,0 +1,60 @@
+<div class="container">
+    <div class="row">
+        <form [formGroup]="addItemForm" (ngSubmit)="onSubmitForm()">
+            <div class="form-group">
+
+                <label for="nameItem">Name of Item</label>
+                <input formControlName="name" type="text" class="form-control" id="nameItem" placeholder="Name of Item">
+
+                <label for="descItem">Description</label>
+                <textarea formControlName="description" class="form-control" id="descItem" rows="4"></textarea>
+
+                <label for="categoryItem">Item Category</label>
+                <select formControlName="category" class="form-control" id="categoryItem">
+                    <option>book</option>
+                    <option>food</option>
+                    <option>medical</option>
+                    <option>music</option>
+                    <option>luxury</option>
+                    <option>clothing</option>
+                </select>
+
+                <label for="imageUrl">Image</label>
+                <input formControlName="imageUrl" type="text" class="form-control" id="imageUrl"
+                    placeholder="Image Url">
+
+                <label for="domestic">Domestic or Imported</label>
+                <select formControlName="domestic" type="boolean" class="form-control" id="domestic">
+                    <option>true</option>
+                    <option>false</option>
+                </select>
+
+                <label for="priceItem">Price</label>
+                <input formControlName="price" type="number" class="form-control" id="priceItem"
+                    placeholder="Price of Item">
+
+                <label for="quantityItem">Quantity</label>
+                <input formControlName="quantity" type="number" class="form-control" id="quantityItem"
+                    placeholder="Quantity">
+
+            </div>
+
+            <button *ngIf="editingItemId !== undefined" type="button" class="btn btn-primary mx-2"
+                (click)="onCancelEditItem()">Cancel Edit</button>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="row mb-2" *ngFor="let item of items; let i=index">
+                <div class="col-md-6">
+                    {{ i + 1}}: {{ item.name }}
+                </div>
+                <div class="col-md-6">
+                    <button class="btn btn-danger float-right" (click)="onDeleteItem(item)">Remove Item</button>
+                    <button class="btn btn-info float-right mx-2" (click)="onStartEditItem(item)">Edit Item</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

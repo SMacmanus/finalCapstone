@@ -1,0 +1,11 @@
+
+<div class="card" id="introCard" style="width: 18rem;">
+        <img class="card-img-top" [src]="item.imageUrl" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">{{ item.name }}</h5>
+          <div id="detailButton">
+          <a [routerLink]="[item.id]" class="btn">Take A Closer Look</a>
+        </div>
+        </div>
+      </div>
+

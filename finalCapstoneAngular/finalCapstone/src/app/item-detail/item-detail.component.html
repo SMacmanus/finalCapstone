@@ -1,0 +1,30 @@
+
+
+    <div class="container py-3" id="itemCard">
+        <div class="card">
+            <div class="row">
+                <div class="col-md-4">
+                    <img [src]="item.imageUrl" class="w-100">
+                </div>
+                <div class="col-md-8 px-3">
+                    <div class="card-block px-3">
+                        <h4 class="card-title">{{ item.name }}</h4>
+                        <h5 class="card-text">Item Category: {{ item.category }} </h5>
+                        <p class="card-text"><u>Description</u>:<br> {{ item.description }}</p>
+                        <p *ngIf="item.domestic == true"><i>Domestic</i></p>
+                        <p *ngIf="item.domestic == false"><i>Imported</i></p>
+                        <p class="card-text">Item price: {{ item.price }}</p>
+                        <p>Item tax rate: {{ item.totalTax }}</p>
+                        <input [(ngModel)]="qtyToPurchase" type="number" class="form-control" placeholder="Qty"
+                            [max]="item.quantity">
+                        <button type="button" class="btn btn-success" id="addToCartButton" [class.disabled]="qtyToPurchase > item.quantity"
+                            (click)="onAddToCart(item)">{{ buttonText }}</button>
+                        <br>
+                        <a routerLink="/inventory" routerLinkActive="link-active" class="btn btn-success" id="returnToStore">Keep Shopping</a>
+                        <br>
+                        <a routerLink="/cart" routerLinkActive="link-active" class="btn btn-success" id="goToCheckout">Proceed To Checkout</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

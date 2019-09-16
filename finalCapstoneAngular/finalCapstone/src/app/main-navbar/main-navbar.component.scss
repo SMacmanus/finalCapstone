@@ -1,0 +1,52 @@
+#cartIcon {
+    height: 25px;
+    width: auto;
+    padding-left: 5px;
+}
+@import 'https://fonts.googleapis.com/css?family=Roboto+Mono:100';
+@import 'https://fonts.googleapis.com/css?family=Megrim';
+html,
+body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    cursor: pointer;
+  }
+  #nav {
+    background: #fafaf0;
+  }
+  .canvas1 {
+    border: 1px soild black;
+  }
+  #cartLink {
+    float: right;
+  }
+  h1 {
+    display: inline-block;
+    padding: .3em;
+    font-family: 'Megrim', cursive;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    user-select: none;
+    transform: translate(-50%,-50%);
+    color:rgba(255,255,255,.1);
+    border: .075em solid rgba(255,255,255,.1);
+  }
+.container1 {
+    font-family: 'Roboto Mono', monospace;
+    width: 50%;
+    
+}
+.text1 {
+    margin: auto auto;
+    font-weight: 100;
+    font-style: bold;
+    font-size: 38px;
+    color: #e73c7e;
+    text-align: center;
+}
+.dud {
+    color: #e6e6e6;
+}

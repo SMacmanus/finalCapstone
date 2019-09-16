@@ -1,0 +1,18 @@
+
+
+<div class="container" id="itemsContainer">
+    <div class="row">
+        <div class="col-md-12">
+            <input id="searchBox" [(ngModel)]="filterText" placeholder="Search">
+
+            <h4 id="listTitle">Items For Sale</h4>
+            
+            <div class="row">
+                <div class="col-md-4 mb-3" *ngFor="let item of (items | itemSearch: filterText); let i = index">
+                    <app-item-card [item]="item" [i]="i"></app-item-card>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

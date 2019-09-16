@@ -1,0 +1,80 @@
+<ng-template #content let-modal>
+        <div class="modal-header">
+                <h4 class="modal-title">Receipt of Purchase</h4>
+                <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <table class="table" *ngIf="itemsInCart.length > 0">
+                    <thead>
+                        <tr>
+                            <th scope="col">Name</th>
+                            <th scope="col">Quantity</th>
+                            <th scope="col">Unit Price</th>
+                            <th scope="col">Subtotal</th>
+                            <th scope="col">Item Tax</th>
+                            <th scope="col">Item Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let item of itemsInCart; let i = index">
+                            <td>{{ item.name }}</td>
+                            <td>{{ item.quantity }}</td>
+                            <td>{{ item.price | currency }}</td>
+                            <td>{{ item.quantity * item.price | currency }}</td>
+                            <td>{{ (item.totalTax * item.quantity * item.price) | rounding | currency }}</td>
+                            <td>{{ ((item.quantity * item.price) +(item.totalTax * item.quantity * item.price | rounding )) | currency }}
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="modal=footer">
+                <strong *ngIf="itemsInCart.length > 0">Tax Total: {{ finalTax | currency }}</strong><br>
+                <strong *ngIf="itemsInCart.length > 0">Total: {{ total | currency }}</strong>
+                <br>
+                <a routerLink="/inventory" routerLinkActive="link-active"><button type="button" class="btn btn-outline-dark"
+                        (click)="modal.close('Save click')">Close</button></a>         
+            </div>
+</ng-template>
+
+<div class="container">
+    <table class="table" *ngIf="itemsInCart.length > 0">
+        <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Quantity</th>
+                <th scope="col">Unit Price</th>
+                <th scope="col">Subtotal</th>
+                <th scope="col">Item Tax</th>
+                <th scope="col">Item Total</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of itemsInCart; let i = index">
+                <td>{{ item.name }}</td>
+                <td><button class="btn btn-info" [class.disable]="item.quantity == 0"
+                        (click)="onDecreaseQty(item)">-</button>&nbsp;{{ item.quantity }}&nbsp;<button
+                        class="btn btn-info" [class.disabled]="item.quantity == item.available"
+                        (click)="onIncreaseQty(item)">+</button></td>
+                <td>{{ item.price | currency }}</td>
+                <td>{{ item.quantity * item.price | currency }}</td>
+                <td>{{ item.totalTax * item.quantity * item.price | rounding | currency }}</td>
+                <td>{{ (item.quantity * item.price) + ((item.totalTax * item.quantity * item.price) | rounding ) | currency }}
+                </td>
+                <td><button class="btn btn-danger float-right" (click)="onRemoveItemFromCart(i)">Remove Item</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <strong *ngIf="itemsInCart.length > 0">Total: {{ total | currency }}</strong>
+    <br>
+    <br>
+    
+<button *ngIf="itemsInCart.length > 0" class="btn btn-success" (click)="open(content)">Complete Purchase</button>
+<h5 *ngIf="itemsInCart.length == 0">{{ infoText }}</h5>
+</div>
+
+<pre>{{closeResult}}</pre>
